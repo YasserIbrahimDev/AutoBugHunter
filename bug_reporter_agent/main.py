@@ -31,5 +31,10 @@ def receive_pubsub():
 
     return 'OK', 200
 
+@app.route('/', methods=['GET'])
+def home():
+    
+    return 'Hello, I am the Bug Reorter Agent', 200
+
 if __name__ == '__main__':
     app.run(debug=True)
