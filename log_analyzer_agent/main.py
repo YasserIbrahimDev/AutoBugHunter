@@ -6,7 +6,7 @@ from flask import Flask, request, jsonify
 from google.cloud import pubsub_v1
 
 app = Flask(__name__)
-print("🔄 Fresh deploy marker")
+print("🔄Fresh deploy marker")
 
 # Global variables for pull-based subscriber
 subscriber = None
