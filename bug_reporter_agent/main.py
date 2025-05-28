@@ -36,7 +36,6 @@ def home():
     
     return 'Hello, I am the Bug Reorter Agent', 200
 
-import os
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 8080))
