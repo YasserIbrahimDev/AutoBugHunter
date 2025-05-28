@@ -7,8 +7,8 @@ import json
 
 app = Flask(__name__)
 
-TO_EMAIL = "yasser.ibrahim.dev@gmail.com"  # replace with your team email
-FROM_EMAIL = "mynameisyasser123@gmail.com"       # any verified email in SendGrid
+TO_EMAIL = "mynameisyasser123@gmail.com"  # replace with your team email
+FROM_EMAIL = "yasser.ibrahim.dev@gmail.com"       # any verified email in SendGrid
 
 @app.route('/', methods=['GET'])
 def home():
@@ -45,12 +45,13 @@ def handle_event():
         return 'Error sending email', 500
 
 def send_email(subject, body):
+  
     message = Mail(
-        from_email=FROM_EMAIL,
-        to_emails=TO_EMAIL,
-        subject=subject,
-        plain_text_content=body
-    )
+    from_email=FROM_EMAIL,
+    to_emails=TO_EMAIL,
+    subject='Bug Alert: Crash Detected',
+    plain_text_content='Details here...')
+
     sg = SendGridAPIClient(os.environ['SENDGRID_API_KEY'])
     sg.send(message)
 
