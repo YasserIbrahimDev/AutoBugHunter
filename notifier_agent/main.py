@@ -49,8 +49,12 @@ def send_email(subject, body):
     message = Mail(
     from_email=FROM_EMAIL,
     to_emails=TO_EMAIL,
-    subject='Bug Alert: Crash Detected',
-    plain_text_content='Details here...')
+    subject=subject,
+    plain_text_content=body)
+
+
+    print("✅ Key exists:", bool(os.environ.get('SENDGRID_API_KEY')))
+
 
     sg = SendGridAPIClient(os.environ['SENDGRID_API_KEY'])
     sg.send(message)
